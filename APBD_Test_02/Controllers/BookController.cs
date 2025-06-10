@@ -19,10 +19,10 @@ public class BookController : ControllerBase
     [HttpGet("/all")]
     public async Task<IActionResult> GetBooks(DateTime? realiseDate)
     {
-        var result = await _bookService.GetAllActorsAsync(realiseDate);
-
+        
         try
         {
+            var result = await _bookService.GetAllBooksAsync(realiseDate);
             if (result.Count > 0)
             {
                 return Ok(result);

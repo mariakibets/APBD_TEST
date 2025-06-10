@@ -16,11 +16,11 @@ public class BookService : IBookService
         _context = context;
     }
 
-    public async Task<List<BookDTO>> GetAllActorsAsync(DateTime? realiseDate)
+    public async Task<List<BookDTO>> GetAllBooksAsync(DateTime? realiseDate)
     {
         var query = _context.Books.AsQueryable();
 
-        if (!realiseDate.HasValue)
+        if (realiseDate.HasValue)
         {
             query = query.Where(book => book.RealseDate == realiseDate);
         }
